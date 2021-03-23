@@ -5,54 +5,56 @@
 class Cursor
 {
 public:
-	Cursor() {};
-	Cursor(const int CoordX, const int CoordY, const bool CursorView, const int CursorSize) {};
-	Cursor(const Cursor& other) {};
+	Cursor();
+	Cursor(const unsigned int Point.x, const unsigned int Point.y, const bool CursorView, const int CursorSize);
+	Cursor(const Cursor& other);
 	~Cursor();
 
 	/**
 	 * \brief Метод, возвращающий координату по X
 	 * \return координата по X
 	 */
-	int GetCoordX() const {};
+	unsigned int GetCoordX() const;
 	/**
 	 * \brief Метод, возвращающий координату по Y
 	 * \return координата по Y
 	 */
-	int GetCoordY() const {};
+	unsigned int GetCoordY() const;
 	/**
 	 * \brief Метод, возвращающий вид курсора
 	 * \return горизонтальный или вертикальный
 	 */
-	bool GetCursorView() const {};
+	bool GetCursorView() const;
 	/**
 	 * \brief Метод, возвращающий размер курсора от 1 до 15
 	 * \return размер курсора
 	 */
-	int GetCursorSize() const {};
+	unsigned char GetCursorSize() const;
 	/**
 	 * \brief Метод, изменяющий координаты 
 	 */
-	Cursor& ChangeCoord(const Cursor& other) const {};
+	void ChangeCoord(const Point& NewCoord);
 	/**
 	 * \brief Метод, изменяющий вид курсора
 	 */
-	Cursor& ChangeCursorView(const Cursor& other) const {};
+	void ChangeCursorView(const CursorView& other);
 	/**
 	 * \brief Метод, изменяющий размер курсора 
 	 */
-	Cursor& ChangeCursorSize(const Cursor& other) const {};
+	void ChangeCursorSize(const CursorSize& other);
 	/**
-	 * \brief Метод гашения и востановлени¤ 
+	 * \brief Метод гашения и востановления 
 	 */
-	Cursor& IsVisible(const Cursor& other) const {};
+	bool IsVisible(const Visible& other);
 
 
 private:
-	int CoordX;
-	int CoordY;
+	struct Point {
+		unsigned int x;
+		unsigned int y;
+	};
 	bool CursorView;
-	int CursorSize;
+	unsigned char CursorSize;
 	bool Visible;
 };
 
