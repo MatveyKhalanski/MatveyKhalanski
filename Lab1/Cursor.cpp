@@ -63,7 +63,7 @@ void Cursor::setVisibility(bool visibility)
 
 void Cursor::changeCursorView()
 {
-	if (this->orientation == Orientation::Vertical) {
+	if (isCursorView() == Orientation::Vertical) {
 		this->orientation = Orientation::Horisontal;
 	}
 	else
@@ -80,7 +80,7 @@ void Cursor::setCursorSize(unsigned int size)
 	
 }
 
-void Cursor::flickering(Cursor& cursor)
+void Cursor::flickering()
 {
 	if (isVisible()) {
 		setVisibility(false);

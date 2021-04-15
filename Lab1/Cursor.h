@@ -70,7 +70,7 @@ public:
 	/**
 	 * \brief метод мерцания курсора
 	 */
-	void flickering(Cursor& cursor);
+	void flickering();
 
 private:
 
