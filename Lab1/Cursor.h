@@ -1,60 +1,83 @@
 #pragma once
+enum class Orientation {
+	Horisontal, Vertical
+};
 /**
-* Класс Cursor
+*† ласс Cursor
 */
 class Cursor
 {
 public:
-	Cursor();
-	Cursor(const unsigned int Point.x, const unsigned int Point.y, const bool CursorView, const int CursorSize);
-	Cursor(const Cursor& other);
-	~Cursor();
+	Cursor() = default;
+	Cursor(const unsigned int x = 0, const unsigned int y = 0, const unsigned int CursorSize = 1, const bool visibility = true);
+	~Cursor() = default;
 
 	/**
-	 * \brief Метод, возвращающий координату по X
-	 * \return координата по X
-	 */
-	unsigned int GetCoordX() const;
+	* \brief метод, возвращающий координату по X
+	* \return координата по X
+	*/
+	unsigned int getCoordX() const;
+
 	/**
-	 * \brief Метод, возвращающий координату по Y
-	 * \return координата по Y
-	 */
-	unsigned int GetCoordY() const;
+	* \brief метод, возвращающий координату по Y
+	* \return координата по Y
+	*/
+	unsigned int getCoordY() const;
+
 	/**
-	 * \brief Метод, возвращающий вид курсора
+	 * \brief метод, возвращающий вид курсора
 	 * \return горизонтальный или вертикальный
 	 */
-	bool GetCursorView() const;
-	/**
-	 * \brief Метод, возвращающий размер курсора от 1 до 15
-	 * \return размер курсора
-	 */
-	unsigned char GetCursorSize() const;
-	/**
-	 * \brief Метод, изменяющий координаты 
-	 */
-	void ChangeCoord(const Point& NewCoord);
-	/**
-	 * \brief Метод, изменяющий вид курсора
-	 */
-	void ChangeCursorView(const CursorView& other);
-	/**
-	 * \brief Метод, изменяющий размер курсора 
-	 */
-	void ChangeCursorSize(const CursorSize& other);
-	/**
-	 * \brief Метод гашения и востановления 
-	 */
-	bool IsVisible(const Visible& other);
+	Orientation isCursorView() const;
 
+	/**
+		* \brief метод, возвращающий размер курсора от 1 до 15
+		* \return размер курсора
+	*/
+	unsigned int getCursorSize() const;
+
+	/**
+	* \brief метод возвращающий статус видимости курсора
+	*/
+	bool isVisible() const;
+
+	/**
+	 * \brief метод, изменяющий координаты
+	 */
+	void setCoord(unsigned int x, unsigned int y);
+
+	/**
+	 * \brief метод, изменяющий координату х
+	 */
+	void setCoordX(unsigned int x);
+
+	/**
+	 * \brief метод, изменяющий координату y
+	 */
+	void setCoordY(unsigned int y);
+
+	void setVisibility(bool visibility);
+	/**
+	 * \brief метод, изменяющий вид курсора
+	 */
+	void changeCursorView();
+
+	/**
+	 * \brief метод, изменяющий размер курсора
+	 */
+	void setCursorSize(unsigned int size);
+
+	/**
+	 * \brief метод мерцания курсора
+	 */
+	void flickering(Cursor& cursor);
 
 private:
-	struct Point {
-		unsigned int x;
-		unsigned int y;
-	};
-	bool CursorView;
-	unsigned char CursorSize;
-	bool Visible;
+
+	unsigned int x;
+	unsigned int y;
+	unsigned int CursorSize;
+	bool visibility;
+	Orientation orientation;
 };
 
