@@ -4,11 +4,11 @@ Cursor::Cursor(const unsigned int x, const unsigned int y, const unsigned int Cu
 {
 	this->x = x;
 	this->y = y;
-	if (CursorSize<15){	
+	if (CursorSize< MAX_CURSOR_SIZE){
 	this->CursorSize = CursorSize;
 	}
 	else{
-		this->CursorSize = 15;
+		this->CursorSize = MAX_CURSOR_SIZE;
 	}
 	this->visibility = visibility;
 	this->orientation = Orientation::Vertical;
@@ -38,12 +38,6 @@ unsigned int Cursor::getCursorSize() const
 bool Cursor::isVisible() const
 {
 	return this->visibility;
-}
-
-void Cursor::setCoord(unsigned int x, unsigned int y)
-{
-	setCoordX(x);
-	setCoordY(y);
 }
 
 void Cursor::setCoordX(unsigned int x)

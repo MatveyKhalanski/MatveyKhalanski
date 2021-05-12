@@ -42,11 +42,6 @@ public:
 	bool isVisible() const;
 
 	/**
-	 * \brief метод, изменяющий координаты
-	 */
-	void setCoord(unsigned int x, unsigned int y);
-
-	/**
 	 * \brief метод, изменяющий координату х
 	 */
 	void setCoordX(unsigned int x);
@@ -73,7 +68,7 @@ public:
 	void flickering();
 
 private:
-
+	const unsigned int MAX_CURSOR_SIZE = 15;
 	unsigned int x;
 	unsigned int y;
 	unsigned int CursorSize;
