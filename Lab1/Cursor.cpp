@@ -25,7 +25,7 @@ unsigned int Cursor::getCoordY() const
 	return this->y;
 }
 
-Orientation Cursor::isCursorView() const
+Orientation Cursor::GetOrientation() const
 {
 	return this->orientation;
 }
@@ -57,7 +57,7 @@ void Cursor::setVisibility(bool visibility)
 
 void Cursor::changeCursorView()
 {
-	if (isCursorView() == Orientation::Vertical) {
+	if (GetOrientation() == Orientation::Vertical) {
 		this->orientation = Orientation::Horisontal;
 	}
 	else
@@ -68,7 +68,7 @@ void Cursor::changeCursorView()
 
 void Cursor::setCursorSize(unsigned int size)
 {
-	if(size<=15){
+	if(size<= MAX_CURSOR_SIZE){
 		this->CursorSize = size;
 	}
 	

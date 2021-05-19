@@ -3,13 +3,12 @@ enum class Orientation {
 	Horisontal, Vertical
 };
 /**
-*† ласс Cursor
+* класс Cursor
 */
 class Cursor
 {
 public:
-	Cursor() = default;
-	Cursor(const unsigned int x = 0, const unsigned int y = 0, const unsigned int CursorSize = 1, const bool visibility = true);
+	explicit Cursor(const unsigned int x = 0, const unsigned int y = 0, const unsigned int CursorSize = 1, const bool visibility = true);
 	~Cursor() = default;
 
 	/**
@@ -28,7 +27,7 @@ public:
 	 * \brief метод, возвращающий вид курсора
 	 * \return горизонтальный или вертикальный
 	 */
-	Orientation isCursorView() const;
+	Orientation GetOrientation() const;
 
 	/**
 		* \brief метод, возвращающий размер курсора от 1 до 15
@@ -68,7 +67,7 @@ public:
 	void flickering();
 
 private:
-	const unsigned int MAX_CURSOR_SIZE = 15;
+	static constexpr unsigned int MAX_CURSOR_SIZE = 15;
 	unsigned int x;
 	unsigned int y;
 	unsigned int CursorSize;
