@@ -52,7 +52,7 @@ public:
 	/**
 	 * \brief метод умножения на число
 	 */
-	Pair& mul(const int n=1);
+	Pair mul(const int n=1);
 
 	/**
 	 * \brief Перегруженный оператор суммы 2 пар полей

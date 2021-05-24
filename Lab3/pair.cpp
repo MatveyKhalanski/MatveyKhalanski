@@ -26,11 +26,9 @@ void Pair::setB(const int b)
 	this->b = b;
 }
 
-Pair& Pair::mul(const int n)
+Pair Pair::mul(const int n)
 {
-	setA(getA() * n);
-	setB(getB() * n);
-	return *this;
+	return Pair(this->getA() * n, this->getB() * n);
 }
 
 Pair operator+(const Pair& fst, const Pair& scnd)
